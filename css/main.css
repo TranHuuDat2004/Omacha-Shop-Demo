@@ -4730,3 +4730,97 @@ form{
 }
 
 
+/* ==================================================================
+   POP-UP NOTICE MODAL
+=================================================================== */
+
+/* Lớp phủ nền mờ */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Nền đen mờ */
+    z-index: 9998; /* Nằm ngay dưới pop-up */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hộp thoại pop-up */
+.popup-modal {
+    background: #ffffff;
+    padding: 30px 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 550px; /* Giới hạn chiều rộng tối đa */
+    text-align: center;
+    position: relative;
+    z-index: 9999;
+}
+
+/* Tiêu đề của pop-up */
+.popup-modal h2 {
+    font-family: 'Poppins-Bold', sans-serif;
+    font-size: 24px;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Nội dung văn bản của pop-up */
+.popup-modal p {
+    font-family: 'Poppins-Regular', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Link GitHub trong pop-up */
+.popup-modal p a {
+    color: #3498db;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* Nút "Đã hiểu" */
+.popup-modal .popup-close-btn {
+    display: inline-block;
+    background-color: #F4538A; /* Màu hồng chủ đạo của bạn */
+    color: white;
+    font-family: 'Poppins-Medium', sans-serif;
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.popup-modal .popup-close-btn:hover {
+    background-color: #e14278; /* Màu đậm hơn khi hover */
+}
+
+/* Nút 'x' để đóng */
+.popup-close-icon {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.popup-close-icon:hover {
+    color: #333;
+}
+
+/* Class tiện ích để ẩn pop-up bằng JS */
+.popup-hidden {
+    display: none !important;
+}
