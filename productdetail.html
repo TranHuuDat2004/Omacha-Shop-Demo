@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Product Details</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css">
+	<!-- link icon -->
+	<link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome"
+		href="/css/app-wa-8d95b745961f6b33ab3aa1b98a45291a.css?vsn=d">
+
+	<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
+
+	<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css">
+
+	<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-regular.css">
+
+	<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css">
+	<!-- link icon -->
+	<link rel="icon" type="image/png" href="images/icon.png" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/linearicons-v1.0.0/icon-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css">
+	<!-- link icon -->
+	<link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome"
+		href="/css/app-wa-8d95b745961f6b33ab3aa1b98a45291a.css?vsn=d">
+
+	<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
+
+	<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css">
+
+	<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-regular.css">
+
+	<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css">
+	<!--===============================================================================================-->
+</head>
+
+<style>
+	/* CSS to change the size of the image */
+	.item-slick3 img {
+		width: 100%;
+		/* Set the width of the image to 100% of the parent element */
+		height: auto;
+		/* Allow the aspect ratio of the image to be maintained */
+	}
+
+	/* # for id */
+	#font-size {
+		font-size: 20px;
+	}
+
+	/* Setting size thumb image  */
+	.wrap-slick3-dots {
+		width: 20%;
+	}
+
+	/* Setting size display image  */
+	.gallery-lb {
+		width: 70%;
+	}
+
+	/* Zoom image */
+	.zoom-container {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+	}
+
+	.zoom-container img {
+		width: 100%;
+		height: auto;
+		transition: transform 0.3s ease;
+	}
+
+	/* Zoom Hover */
+	.zoom-container:hover img {
+		transform: scale(1.5);
+		/* Scale upsize 150% hover */
+	}
+
+	/* Add cart */
+	#button-add {
+		border-radius: 8px;
+		padding: 10px;
+		background-color: #F4538A;
+		color: white;
+		margin-bottom: 10px;
+		/* Add margin to create space between buttons */
+		width: 75%;
+	}
+
+	#button-add:hover {
+		background-color: black;
+	}
+
+	/* Buy it now */
+	#button-buy {
+		border-radius: 8px;
+		padding: 10px;
+		padding-left: 10px;
+		background-color: black;
+		color: white;
+		width: 75%;
+	}
+
+	/* Default hover effect */
+	#button-buy:hover {
+		background-color: #F4538A;
+	}
+
+
+	/* Radio button container style */
+	.size-204 {
+		display: flex;
+		/* Use flexbox for the container */
+		align-items: center;
+		/* Align items vertically */
+	}
+
+	/* Radio button style */
+	input[type="radio"] {
+		display: none;
+		/* Hide the default radio button */
+	}
+
+	/* Custom radio button style */
+	input[type="radio"]+label {
+		border-radius: 8px;
+		padding: 10px;
+		background-color: white;
+		color: black;
+		cursor: pointer;
+		margin-right: 10px;
+		/* Add margin to create space between buttons */
+	}
+
+	/* Styling for when radio button is checked */
+	input[type="radio"]:checked+label {
+		background-color: black;
+		color: white;
+	}
+
+	#bolder {
+		font-weight: bolder;
+	}
+
+	.info-item {
+		margin-bottom: 10px;
+	}
+
+	.info-label {
+		font-weight: bold;
+	}
+
+	.info-value {
+		margin-left: 10px;
+	}
+
+	/* Responsive styles for screens up to 800px */
+	@media (max-width: 800px) {
+
+		.col-lg-6,
+		.col-md-8,
+		.col-sm-10 {
+			width: 100%;
+			/* Make columns full width on small screens */
+		}
+	}
+
+	/* Định dạng nút check out và view cart */
+	#btn-cart {
+		background-color: #F4538A;
+		color: #FFEFEF;
+	}
+
+	#btn-cart:hover {
+		background-color: black;
+		color: #FFEFEF;
+	}
+
+	/* Định dạng nút delete */
+	.btn-delete {
+		color: black;
+	}
+
+	.btn-delete:hover {
+		color: #F4538A;
+	}
+</style>
+
+<body class="animsition">
+
+	<!-- Header Placeholder -->
+	<div id="header-placeholder"></div>
+
+	<!-- Cart Panel -->
+	<!-- ... (giữ nguyên phần Cart) ... -->
+
+	<!-- breadcrumb -->
+	<div class="container">
+		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+			<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">Home
+				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+			</a>
+			<a href="product.html" class="stext-109 cl8 hov-cl1 trans-04">Shop
+				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+			</a>
+			<span class="stext-109 cl4">Product Name</span>
+		</div>
+	</div>
+
+	<!-- Product Detail -->
+	<section class="sec-product-detail bg0 p-t-65 p-b-60">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-lg-7 p-b-30">
+					<div class="p-l-25 p-r-30 p-lr-0-lg">
+						<div class="wrap-slick3 flex-sb flex-w">
+							<div class="wrap-slick3-dots"></div>
+							<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+							<div class="slick3 gallery-lb">
+								<!-- Images will be loaded here -->
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-5 p-b-30">
+					<div class="p-r-50 p-t-5 p-lr-0-lg">
+						<h4 class="mtext-105 cl2 js-name-detail p-b-14">Loading...</h4>
+						<span class="mtext-106 cl2">$0.00</span>
+						<p class="stext-102 cl3 p-t-23">Loading description...</p>
+						<!-- Size, Color, Quantity controls... -->
+						<!-- ... (giữ nguyên) ... -->
+					</div>
+				</div>
+			</div>
+
+			<div class="bor10 m-t-50 p-t-43 p-b-40">
+				<!-- Tab01 -->
+				<div class="tab01">
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="nav-item p-b-10"><a class="nav-link active" data-toggle="tab" href="#description"
+								role="tab">Description</a></li>
+						<li class="nav-item p-b-10"><a class="nav-link" data-toggle="tab" href="#information"
+								role="tab">Additional information</a></li>
+						<li class="nav-item p-b-10"><a class="nav-link" data-toggle="tab" href="#reviews"
+								role="tab">Reviews (0)</a></li>
+					</ul>
+					<div class="tab-content p-t-43">
+						<div class="tab-pane fade show active" id="description" role="tabpanel">
+							<div class="how-pos2 p-lr-15-md">
+								<p class="stext-102 cl6">Loading full description...</p>
+							</div>
+						</div>
+						<!-- Additional information -->
+						<div class="tab-pane fade" id="information" role="tabpanel">
+							<div class="row p-t-20 p-l-60">
+								<div class="col-sm-12 col-md-6 p-b-20">
+									<div class="info-item">
+										<span class="stext-102 cl3 info-label">Brand:</span>
+										<!-- Thêm id để JS dễ dàng nhắm mục tiêu -->
+										<span id="info-brand" class="stext-102 cl6 info-value">N/A</span>
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-6 p-b-20">
+									<div class="info-item">
+										<span class="stext-102 cl3 info-label">Recommended Age:</span>
+										<span id="info-age" class="stext-102 cl6 info-value">N/A</span>
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-6 p-b-20">
+									<div class="info-item">
+										<span class="stext-102 cl3 info-label">Material:</span>
+										<span id="info-material" class="stext-102 cl6 info-value">N/A</span>
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-6 p-b-20">
+									<div class="info-item">
+										<span class="stext-102 cl3 info-label">Weight:</span>
+										<span id="info-weight" class="stext-102 cl6 info-value">N/A</span>
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-6 p-b-20">
+									<div class="info-item">
+										<span class="stext-102 cl3 info-label">Dimensions:</span>
+										<span id="info-dimensions" class="stext-102 cl6 info-value">N/A</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="reviews" role="tabpanel">
+							<div class="row">
+								<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
+									<div class="p-b-30 m-lr-15-sm">
+										<div id="review-list-container"></div>
+										<!-- ... (Form add review) ... -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ... (Related Products, Footer, Modals giữ nguyên) ... -->
+	<div id="footer-placeholder"></div>
+
+	<!--===============================================================================================-->
+	<!-- JAVASCRIPT SECTION -->
+	<!--===============================================================================================-->
+
+	<!-- Thư viện jQuery (QUAN TRỌNG NHẤT - PHẢI NẠP ĐẦU TIÊN) -->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+
+	<!-- Các thư viện khác phụ thuộc jQuery -->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="vendor/slick/slick.min.js"></script>
+	<script src="vendor/sweetalert/sweetalert.min.js"></script>
+	<script src="vendor/isotope/isotope.pkgd.min.js"></script>
+	<script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="vendor/parallax100/parallax100.js"></script>
+
+	<!-- Các script tùy chỉnh của template (cũng dùng jQuery) -->
+	<script src="js/slick-custom.js"></script>
+	<script src="js/main.js"></script>
+
+	<!-- Các script tùy chỉnh của bạn (nạp sau cùng) -->
+	<script src="js/data.js"></script>
+	<script src="js/header.js"></script>
+	<script src="js/footer.js"></script>
+	<script src="js/product-detail.js"></script>
+
+	<!-- Script cho hiệu ứng Zoom (đã có jQuery ở trên nên sẽ chạy được) -->
+	<script>
+		$(document).ready(function () {
+			$('body').on('mousemove', '.zoom-container', function (e) {
+				var image = $(this).find("img");
+				var offsetX = e.pageX - $(this).offset().left;
+				var offsetY = e.pageY - $(this).offset().top;
+				var posX = offsetX / $(this).width() * 100;
+				var posY = offsetY / $(this).height() * 100;
+				image.css("transform-origin", posX + "% " + posY + "%");
+				image.css("transform", "scale(1.5)");
+			});
+
+			$('body').on('mouseleave', '.zoom-container', function (e) {
+				$(this).find("img").css("transform", "scale(1)");
+			});
+		});
+	</script>
+
+</body>
+
+</html>
