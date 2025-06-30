@@ -1,162 +1,135 @@
-// cart.js - Quản lý toàn bộ logic giỏ hàng
+// js/cart.js - Quản lý TOÀN BỘ logic giỏ hàng (dữ liệu + giao diện + sự kiện)
 
-// Đảm bảo script chỉ chạy khi trang đã tải xong
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     // =================================================================
-    // CÁC HÀM QUẢN LÝ DỮ LIỆU (localStorage)
+    // CÁC HÀM QUẢN LÝ DỮ LIỆU
     // =================================================================
-
-    /**
-     * Lấy dữ liệu giỏ hàng từ localStorage.
-     * @returns {Array} Mảng các sản phẩm trong giỏ, ví dụ: [{ productId: 1, quantity: 2 }]
-     */
     function getCart() {
-        const cartData = localStorage.getItem('cart');
-        return cartData ? JSON.parse(cartData) : [];
+        return JSON.parse(localStorage.getItem('cart')) || [];
     }
 
-    /**
-     * Lưu dữ liệu giỏ hàng vào localStorage.
-     * @param {Array} cart - Mảng giỏ hàng cần lưu.
-     */
     function saveCart(cart) {
         localStorage.setItem('cart', JSON.stringify(cart));
-        // Sau khi lưu, cập nhật lại giao diện
-        renderCart();
+        renderCartUI();
+    }
+
+    // Thêm sản phẩm mẫu nếu giỏ hàng trống (chỉ chạy 1 lần)
+    function initializeCart() {
+        if (!localStorage.getItem('cart')) {
+            console.log("Initializing cart with sample items.");
+            const sampleItems = [
+                { productId: 3, quantity: 1 },
+                { productId: 1, quantity: 2 }
+            ];
+            localStorage.setItem('cart', JSON.stringify(sampleItems));
+        }
     }
 
 
     // =================================================================
     // CÁC HÀM THAO TÁC VỚI GIỎ HÀNG
     // =================================================================
-
-    /**
-     * Thêm sản phẩm vào giỏ hàng.
-     * @param {number} productId - ID của sản phẩm.
-     * @param {number} quantity - Số lượng cần thêm.
-     */
-    window.addToCart = function(productId, quantity = 1) {
+    window.addToCart = function (productId, quantity = 1) {
         const cart = getCart();
         const productIndex = cart.findIndex(item => item.productId === productId);
-
         if (productIndex > -1) {
-            // Nếu sản phẩm đã có trong giỏ, tăng số lượng
             cart[productIndex].quantity += quantity;
         } else {
-            // Nếu chưa có, thêm mới
             cart.push({ productId, quantity });
         }
-        
         saveCart(cart);
-        // Hiển thị thông báo hoặc mở giỏ hàng
-        alert('Đã thêm sản phẩm vào giỏ hàng!');
-        // Bạn có thể mở panel giỏ hàng bằng cách gọi hàm của template, ví dụ:
-        // $('.js-panel-cart').addClass('show-header-cart'); 
+        // alert('Product added to cart!');
+        $('.js-panel-cart').addClass('show-header-cart');
     }
 
-    /**
-     * Xóa sản phẩm khỏi giỏ hàng.
-     * @param {number} productId - ID của sản phẩm cần xóa.
-     */
     function removeFromCart(productId) {
         let cart = getCart();
         cart = cart.filter(item => item.productId !== productId);
         saveCart(cart);
     }
 
-    /**
-     * Xóa toàn bộ giỏ hàng
-     */
-    function clearCart() {
-        saveCart([]);
-    }
-
 
     // =================================================================
     // HÀM HIỂN THỊ GIỎ HÀNG (RENDER UI)
     // =================================================================
-
-    function renderCart() {
+    function renderCartUI() {
         const cart = getCart();
         const cartContainer = document.querySelector('.header-cart-wrapitem');
         const cartTotalElement = document.querySelector('.header-cart-total');
+        const cartNotifyIcon = document.querySelector('.js-show-cart');
 
-        if (!cartContainer || !cartTotalElement) {
-            console.error("Không tìm thấy các thành phần của giỏ hàng trên trang.");
-            return;
-        }
+        if (!cartContainer || !cartTotalElement || !cartNotifyIcon) return;
 
-        // Xóa nội dung cũ
-        cartContainer.innerHTML = '';
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartNotifyIcon.setAttribute('data-notify', totalItems);
 
         if (cart.length === 0) {
-            cartContainer.innerHTML = '<li class="header-cart-item">Giỏ hàng của bạn trống.</li>';
-            cartTotalElement.innerText = 'Total: $0.00';
+            cartContainer.innerHTML = '<li class="header-cart-item p-t-10 p-b-10" style="text-align: center;">Your cart is empty.</li>';
+            cartTotalElement.innerHTML = 'Total: $0.00';
             return;
         }
 
         let total = 0;
+        let cartHTML = '';
         cart.forEach(cartItem => {
-            // Tìm thông tin đầy đủ của sản phẩm từ database
-            const product = database.product.find(p => p.p_id === cartItem.productId);
-
-            if (product) {
-                const subtotal = product.p_price * cartItem.quantity;
-                total += subtotal;
-
-                // Lấy ảnh đầu tiên của sản phẩm
-                const mainImage = product.p_image[0] || 'placeholder.png';
-
-                const cartItemHTML = `
+            const productInfo = product.find(p => p.p_id === cartItem.productId);
+            if (productInfo) {
+                total += productInfo.p_price * cartItem.quantity;
+                const mainImage = productInfo.p_image[0] || 'placeholder.png';
+                cartHTML += `
                     <li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img" data-product-id="${product.p_id}">
-                            <i class="fas fa-times-circle remove-item-icon"></i>
-							<img src="images/${mainImage}" alt="${product.p_name}">
+						<div class="header-cart-item-img remove-from-cart-btn" data-product-id="${productInfo.p_id}" title="Remove this item">
+							<img src="images/${mainImage}" alt="${productInfo.p_name}">
 						</div>
-
 						<div class="header-cart-item-txt p-t-8">
-							<a href="product-detail.html?id=${product.p_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								${product.p_name}
-							</a>
-
-							<span class="header-cart-item-info">
-								${cartItem.quantity} x $${product.p_price.toFixed(2)}
-							</span>
+							<a href="product-detail.html?p_id=${productInfo.p_id}" class="header-cart-item-name m-b-18 hov-cl1 trans-04">${productInfo.p_name}</a>
+							<span class="header-cart-item-info">${cartItem.quantity} x $${productInfo.p_price.toFixed(2)}</span>
 						</div>
-					</li>
-                `;
-                cartContainer.innerHTML += cartItemHTML;
+					</li>`;
             }
         });
-        
-        // Cập nhật tổng tiền
-        cartTotalElement.innerText = `Total: $${total.toFixed(2)}`;
+        cartContainer.innerHTML = cartHTML;
+        cartTotalElement.innerHTML = `Total: $${total.toFixed(2)}`;
     }
 
-    
+
     // =================================================================
-    // LẮNG NGHE SỰ KIỆN
+    // LẮNG NGHE SỰ KIỆN (PHIÊN BẢN MỚI, ĐÁNG TIN CẬY)
     // =================================================================
 
-    // Gọi hàm render lần đầu khi trang tải xong
-    renderCart();
+    // Sử dụng jQuery và Event Delegation để đảm bảo các sự kiện hoạt động
+    // ngay cả trên các phần tử được tạo động bởi header.js
+    const $body = $('body');
 
-    // Lắng nghe sự kiện click trên toàn bộ giỏ hàng để xử lý nút xóa
-    const cartContent = document.querySelector('.header-cart-content');
-    if (cartContent) {
-        cartContent.addEventListener('click', function(event) {
-            // Kiểm tra xem phần tử được click có phải là nút xóa không
-            if (event.target.classList.contains('remove-item-icon')) {
-                // Lấy ID sản phẩm từ `data-product-id` của thẻ cha
-                const productId = parseInt(event.target.parentElement.dataset.productId);
-                if (productId) {
-                    if (confirm('Bạn có chắc muốn xóa sản phẩm này khỏi giỏ hàng?')) {
-                        removeFromCart(productId);
-                    }
-                }
-            }
-        });
-    }
+    // Sự kiện MỞ sidebar giỏ hàng
+    $body.on('click', '.js-show-cart', function () {
+        $('.js-panel-cart').addClass('show-header-cart');
+    });
 
+    // Sự kiện ĐÓNG sidebar giỏ hàng (khi click nút 'X')
+    $body.on('click', '.js-hide-cart', function () {
+        $('.js-panel-cart').removeClass('show-header-cart');
+    });
+
+    // Sự kiện ĐÓNG sidebar giỏ hàng (khi click vào lớp phủ màu đen)
+    $body.on('click', '.s-full', function () {
+        $('.js-panel-cart').removeClass('show-header-cart');
+    });
+
+    // Sự kiện XÓA một sản phẩm khỏi giỏ hàng
+    $body.on('click', '.remove-from-cart-btn', function () {
+        const productId = parseInt($(this).data('product-id'));
+        if (productId && confirm('Are you sure you want to remove this item?')) {
+            removeFromCart(productId);
+        }
+    });
+
+    // =================================================================
+    // KHỞI TẠO
+    // =================================================================
+    initializeCart();
+    renderCartUI();
+    // GỌI HÀM CẬP NHẬT HEADER
+    updateHeaderIcons(); // <--- DÒNG QUAN TRỌNG
 });

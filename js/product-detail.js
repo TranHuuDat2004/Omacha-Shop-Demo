@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    // `product` và `comments` là các biến toàn cục từ data.js
     const selectedProduct = product.find(p => p.p_id === productId);
 
     if (!selectedProduct) {
@@ -16,8 +15,42 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     displayProductDetails(selectedProduct);
-    // Gọi hàm hiển thị review mới
-    displayProductReviews(comments);
+    displayProductReviews(selectedProduct.comments || []); // Hiển thị comment của sản phẩm nếu có
+
+    // =======================================================
+    // GẮN SỰ KIỆN CHO CÁC NÚT BẤM MỚI
+    // =======================================================
+    const quantityInput = document.getElementById('quantity-input');
+    const addToCartBtn = document.getElementById('add-to-cart-btn');
+    const buyNowBtn = document.getElementById('buy-it-now-btn');
+
+    // Lắng nghe sự kiện click nút "Add to cart"
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', function() {
+            const quantity = parseInt(quantityInput.value);
+            if (quantity > 0) {
+                // Gọi hàm addToCart toàn cục từ file cart.js
+                window.addToCart(productId, quantity);
+            } else {
+                alert("Please enter a valid quantity.");
+            }
+        });
+    }
+
+    // Lắng nghe sự kiện click nút "Buy It Now"
+    if (buyNowBtn) {
+        buyNowBtn.addEventListener('click', function() {
+            const quantity = parseInt(quantityInput.value);
+            if (quantity > 0) {
+                // Thêm vào giỏ hàng
+                window.addToCart(productId, quantity);
+                // Và chuyển hướng ngay đến trang giỏ hàng
+                window.location.href = 'shopping-cart.html';
+            } else {
+                alert("Please enter a valid quantity.");
+            }
+        });
+    }
 });
 
 

@@ -56,7 +56,7 @@ const login = [
 
 // Dữ liệu Orders
 const order = [
-  { o_id: 70, u_id: 21, p_id: 3, o_price: 11, o_quantity: 5, o_status: true },
+  { o_id: 70, u_id: 2, p_id: 3, o_price: 11, o_quantity: 5, o_status: true },
   { o_id: 79, u_id: 14, p_id: 6, o_price: 13, o_quantity: 5, o_status: true },
   { o_id: 84, u_id: 14, p_id: 4, o_price: 11, o_quantity: 1, o_status: true },
   { o_id: 86, u_id: 24, p_id: 2, o_price: 13, o_quantity: 1, o_status: false },

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Checkout</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Xuất PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+
+
+    <!-- Các file CSS thư viện -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
+    <link rel="icon" type="image/png" href="images/icon.png" />
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/linearicons-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+
+    <!-- Các file CSS tự viết -->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="css/cart.css">
+
+    <!-- jQuery library (cần được nạp trước các script khác) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<style>
+    .checkout-form .bor8 {
+        margin-bottom: 20px;
+    }
+
+    .order-summary {
+        background-color: #f9f9f9;
+        padding: 30px;
+        border-radius: 10px;
+    }
+
+    .order-summary-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+    .order-summary-item:last-child {
+        border-bottom: none;
+    }
+
+    .order-summary-total {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    #place-order-btn {
+        width: 100%;
+    }
+</style>
+
+<body class="animsition">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- breadcrumb -->
+    <div class="container">
+        <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+            <a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">Home <i class="fa fa-angle-right m-l-9 m-r-10"
+                    aria-hidden="true"></i></a>
+            <a href="shopping-cart.html" class="stext-109 cl8 hov-cl1 trans-04">Shopping Cart <i
+                    class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i></a>
+            <span class="stext-109 cl4">Checkout</span>
+        </div>
+    </div>
+
+    <!-- Checkout Section -->
+    <!-- BỌC TOÀN BỘ SECTION BẰNG MỘT THẺ FORM -->
+    <form id="billing-form" action="create-invoice.php" method="POST" target="_blank">
+        <section class="bg0 p-t-75 p-b-85">
+            <div class="container">
+                <div class="row">
+                    <!-- Cột Form thông tin khách hàng -->
+                    <div class="col-lg-7 col-xl-8 m-b-50">
+                        <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+                            <h4 class="mtext-109 cl2 p-b-30">
+                                Billing Details
+                            </h4>
+                            <!-- Các input đã nằm trong form cha -->
+                            <div class="bor8 m-b-20">
+                                <input class="stext-111 cl2 plh3 size-111 p-lr-15" type="text" name="name"
+                                    placeholder="Full Name *" required>
+                            </div>
+                            <div class="bor8 m-b-20">
+                                <input class="stext-111 cl2 plh3 size-111 p-lr-15" type="text" name="address"
+                                    placeholder="Street Address *" required>
+                            </div>
+                            <div class="bor8 m-b-20">
+                                <input class="stext-111 cl2 plh3 size-111 p-lr-15" type="text" name="city"
+                                    placeholder="Town / City *" required>
+                            </div>
+                            <div class="bor8 m-b-20">
+                                <input class="stext-111 cl2 plh3 size-111 p-lr-15" type="tel" name="phone"
+                                    placeholder="Phone *" required>
+                            </div>
+                            <div class="bor8 m-b-20">
+                                <input class="stext-111 cl2 plh3 size-111 p-lr-15" type="email" name="email"
+                                    placeholder="Email Address *" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cột Tóm tắt đơn hàng -->
+                    <div class="col-lg-5 col-xl-4 m-b-50">
+                        <div class="order-summary">
+                            <h4 class="mtext-109 cl2 p-b-30">
+                                Your Order
+                            </h4>
+                            <div id="order-summary-list">
+                                <!-- Sản phẩm sẽ được điền vào đây -->
+                            </div>
+                            <div class="order-summary-item order-summary-total p-t-20">
+                                <span>Total:</span>
+                                <span id="order-total-price">$0.00</span>
+                            </div>
+
+                            <!-- BẰNG DÒNG NÀY -->
+                            <button id="place-order-btn"
+                                class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer m-t-30">
+                                Place Order & Get Invoice
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top" id="myBtn"><span class="symbol-btn-back-to-top"><i
+                class="zmdi zmdi-chevron-up"></i></span></div>
+
+    <!-- File: checkout.html -->
+
+    <!-- ... (Phần Back to top) ... -->
+
+    <!--===============================================================================================-->
+    <!-- JAVASCRIPT SECTION -->
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+
+    <!-- Các thư viện của template -->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+
+    <!-- Các script tùy chỉnh -->
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script> <!-- Nạp cart.js -->
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/checkout.js"></script>
+
+    <!-- Script chính của template -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
