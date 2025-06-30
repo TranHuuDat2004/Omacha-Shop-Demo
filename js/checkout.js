@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         doc.setFontSize(10);
         doc.text(`Date: ${date}`, 20, 70);
         doc.text(`Time: ${time}`, 80, 70);
-        doc.text("Employee: Nguyen Thuy Khanh", 20, 77);
+        doc.text("Employee: Tran Huu Dat", 20, 77);
         doc.text(`Customer: ${loggedInUser ? loggedInUser.userName : 'Guest'}`, 20, 84);
 
         // --- Tạo bảng sản phẩm ---
