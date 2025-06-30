@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Blog</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Các file CSS thư viện -->
+	<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
+	<link rel="icon" type="image/png" href="images/icon.png" />
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/linearicons-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+	
+	<!-- Các file CSS tự viết -->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="css/cart.css">
+	<link rel="stylesheet" href="css/disproduct.css">
+
+	<!-- jQuery library (cần được nạp trước các script khác) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="animsition">
+	
+	<!-- Header Placeholder -->
+	<div id="header-placeholder"></div>
+
+	<!-- Cart Panel -->
+	<!-- ... (giữ nguyên phần Cart) ... -->
+
+	<!-- Title page -->
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
+		<h2 class="ltext-105 cl0 txt-center">
+			Blog
+		</h2>
+	</section>	
+
+	<!-- Content page -->
+	<section class="bg0 p-t-62 p-b-60">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-lg-9 p-b-80">
+					<div class="p-r-45 p-r-0-lg">
+						
+						<!-- CONTAINER CHO DANH SÁCH BLOG -->
+						<div class="row" id="blog-list-container">
+							<!-- Các bài viết sẽ được JS điền vào đây -->
+						</div>
+
+						<!-- Pagination (có thể làm động sau này) -->
+						<div class="flex-l-m flex-w w-full p-t-10 m-lr--7">
+							<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">1</a>
+							<!-- <a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7">2</a> -->
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-lg-3 p-b-80">
+					<div class="side-menu">
+						<div class="bor17 of-hidden pos-relative">
+							<input class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" type="text" name="search" placeholder="Search">
+							<button class="flex-c-m size-122 ab-t-r fs-18 cl4 hov-cl1 trans-04">
+								<i class="zmdi zmdi-search"></i>
+							</button>
+						</div>
+
+						<div class="p-t-55">
+							<h4 class="mtext-112 cl2 p-b-33">Categories</h4>
+							<!-- CONTAINER CHO CATEGORIES -->
+							<ul id="category-list">
+								<!-- Categories sẽ được JS điền vào đây -->
+							</ul>
+						</div>
+
+						<div class="p-t-65">
+							<h4 class="mtext-112 cl2 p-b-33">Recent Post</h4>
+							<!-- CONTAINER CHO RECENT POSTS -->
+							<ul id="recent-post-list">
+								<!-- Các bài viết gần đây sẽ được JS điền vào đây -->
+							</ul>
+						</div>
+
+						<!-- ... (Phần Archive và Tags giữ nguyên) ... -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>	
+	
+	<!-- Footer Placeholder -->
+	<div id="footer-placeholder"></div>
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+<!--===============================================================================================-->	
+	<!-- SẮP XẾP LẠI THỨ TỰ SCRIPT -->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!-- ... (các script thư viện khác) ... -->
+
+	<!-- Các script tùy chỉnh -->
+	<script src="js/data.js"></script>
+	<script src="js/header.js"></script>
+	<script src="js/footer.js"></script>
+	<script src="js/blog.js"></script> <!-- Nạp file logic mới -->
+
+	<!-- Script chính của template -->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -232,3 +232,259 @@ const review = [
 
 // Dữ liệu Wishlist (hiện đang rỗng)
 const wishlist = [];
+
+// Dữ liệu Blog Posts
+const posts = [
+  {
+    id: 1,
+    title: "8 Inspiring Ways to Wear Dresses in the Winter",
+    image: "blog-04.jpg", // Ví dụ, bạn cần có ảnh này
+    author: "Admin",
+    date: "July 18, 2024",
+    category: "StreetStyle",
+    tags: ["Fashion", "StreetStyle"],
+    content: `
+      <p class="stext-117 cl6 p-b-26">
+        Winter doesn't mean you have to pack away your favorite dresses. With the right layering techniques, you can rock a dress even on the chilliest days. One popular method is to layer a turtleneck sweater underneath a slip dress. This not only keeps you warm but also adds a chic, '90s-inspired vibe to your outfit. Pair it with ankle boots and a long wool coat for a look that's both stylish and practical.
+      </p>
+      <p class="stext-117 cl6 p-b-26">
+        Another great option is the sweater dress. It's the perfect combination of comfort and style. Choose a chunky knit sweater dress and pair it with over-the-knee boots for a cozy yet sophisticated ensemble. You can cinch the waist with a belt to add definition to your silhouette. Don't be afraid to play with textures; a leather jacket over a soft knit dress creates a beautiful contrast that is sure to turn heads. Accessorize with a warm scarf and a beanie to complete your winter-ready look.
+      </p>
+    `,
+    comments: [
+      { name: "Sarah (a Mom)", avatar: "images/female.jpg", text: "This is so helpful! I always struggle with finding the right toys." },
+      { name: "Admin", avatar: "images/admin.png", text: "You're welcome, Sarah! The goal is always fun and learning combined." }
+    ]
+  },
+  {
+    id: 2,
+    title: "The Great Big List of Men’s Gifts for the Holidays",
+    image: "blog-05.jpg", // Ví dụ, bạn cần có ảnh này
+    author: "Admin",
+    date: "July 15, 2024",
+    category: "Gifts",
+    tags: ["Lifestyle", "Gifts"],
+    content: `
+      <p class="stext-117 cl6 p-b-26">
+        Finding the perfect gift for the men in your life can be a challenge, but we've got you covered. For the tech enthusiast, consider a pair of high-quality noise-canceling headphones or the latest smart-watch. These gadgets are not only useful but also show that you're in tune with his interests.
+      </p>
+      <p class="stext-117 cl6 p-b-26">
+        If he's more of an outdoorsman, a durable multi-tool, a high-performance jacket, or a portable camping stove could be the perfect present. For the man who appreciates the finer things, a classic leather wallet, a set of premium grooming products, or a subscription to a craft beer or coffee club will surely be a hit. The key is to think about his hobbies and passions to find a gift that is both thoughtful and practical.
+      </p>
+    `,
+    comments: [
+      { name: "Sarah (a Mom)", avatar: "images/female.jpg", text: "This is so helpful! I always struggle with finding the right toys." },
+      { name: "Admin", avatar: "images/admin.png", text: "You're welcome, Sarah! The goal is always fun and learning combined." }
+    ]
+  },
+  {
+    id: 3,
+    title: "What Are the Best Toys for Child Development",
+    image: "blog-01.jpg", // Gán một ảnh ví dụ
+    author: "Admin",
+    date: "July 12, 2024",
+    category: "Development",
+    tags: ["Education", "Toys"],
+    content: `
+      <p class="stext-117 cl6 p-b-26">
+        Selecting toys that promote child development involves considering various factors such as age appropriateness, safety, and educational value. For infants and toddlers, toys that stimulate the senses, such as rattles, textured balls, and musical toys, are beneficial for sensory exploration and motor skill development. Additionally, toys that encourage grasping, stacking, and sorting help enhance fine motor skills and hand-eye coordination.
+      </p>
+      <p class="stext-117 cl6 p-b-26">
+        As children grow older, toys that promote imaginative play, such as dolls, action figures, and dress-up costumes, foster creativity and social skills. Building blocks, puzzles, and construction sets are excellent for developing problem-solving abilities, spatial reasoning, and logical thinking. Educational toys like alphabet blocks, counting games, and science kits can also support early literacy, numeracy, and scientific curiosity. Ultimately, the best toys for child development are those that engage children's interests, spark their curiosity, and provide opportunities for exploration, learning, and social interaction.
+      </p>
+    `,
+    comments: [
+      { name: "Sarah (a Mom)", avatar: "images/female.jpg", text: "This is so helpful! I always struggle with finding the right toys." },
+      { name: "Admin", avatar: "images/admin.png", text: "You're welcome, Sarah! The goal is always fun and learning combined." }
+    ]
+  },
+  {
+    id: 4,
+    title: "How Do Toys Impact a Child's Learning",
+    image: "blog-02.jpg", // Gán một ảnh ví dụ
+    author: "Admin",
+    date: "July 10, 2024",
+    category: "Learning",
+    tags: ["Psychology", "Toys"],
+    content: `
+      <p class="stext-117 cl6 p-b-26">
+        Toys wield significant influence on a child's learning journey, serving as more than just objects of amusement. They act as conduits for exploration, enabling kids to engage with various concepts and skills in an interactive manner. Whether it's through building, problem-solving, or role-playing, toys stimulate different areas of development, including cognitive, social, and emotional domains.
+      </p>
+      <p class="stext-117 cl6 p-b-26">
+        Moreover, the impact of toys extends beyond immediate enjoyment, shaping long-term abilities and attitudes. Educational toys, for instance, not only impart knowledge but also cultivate a love for learning and curiosity. Similarly, toys that encourage collaboration and communication help children develop essential social skills and empathy. Therefore, choosing toys thoughtfully and providing diverse play experiences can profoundly influence a child's growth and learning trajectory.
+      </p>
+    `,
+    comments: [
+      { name: "Sarah (a Mom)", avatar: "images/female.jpg", text: "This is so helpful! I always struggle with finding the right toys." },
+      { name: "Admin", avatar: "images/admin.png", text: "You're welcome, Sarah! The goal is always fun and learning combined." }
+    ]
+  },
+  {
+    id: 5,
+    title: "Build Worlds, Collect Pieces With Your Young Ones",
+    image: "blog-03.jpg", // Gán một ảnh ví dụ
+    author: "Admin",
+    date: "July 08, 2024",
+    category: "Family",
+    tags: ["Creativity", "Bonding"],
+    content: `
+      <p class="stext-117 cl6 p-b-26">
+        Building worlds and collecting pieces with your young ones is not just about creating physical structures; it's about fostering creativity, imagination, and bonding. Whether it's constructing elaborate Lego creations, piecing together puzzles, or designing imaginative landscapes with building blocks, these activities provide valuable opportunities for children to explore their creativity and problem-solving skills.
+      </p>
+      <p class="stext-117 cl6 p-b-26">
+        Moreover, engaging in such activities promotes collaboration and communication as children work together to bring their ideas to life. Through building and collecting, children learn important concepts such as spatial awareness, pattern recognition, and perseverance. As parents or caregivers, participating in these activities with your young ones not only strengthens your bond but also allows you to witness their growth and development firsthand. So, dive into the world of building and collecting with your children, and watch as their imaginations soar and their confidence grows with each piece they add to their creations.
+      </p>
+    `,
+    comments: [
+      { name: "Sarah (a Mom)", avatar: "images/female.jpg", text: "This is so helpful! I always struggle with finding the right toys." },
+      { name: "Admin", avatar: "images/admin.png", text: "You're welcome, Sarah! The goal is always fun and learning combined." }
+    ]
+  },
+  {
+    id: 6,
+    title: "The Joys of Being a Parent: A Guide to Parenting",
+    image: "blog-06.jpg", // Gán một ảnh ví dụ
+    author: "Admin",
+    date: "July 05, 2024",
+    category: "Parenting",
+    tags: ["Guidance", "Family"],
+    content: `
+      <p class="stext-117 cl6 p-b-26">
+        Parenting is a journey filled with ups and downs, but ultimately, it's one of the most rewarding experiences in life. From the first moment you hold your newborn in your arms to the milestones they reach as they grow, the joys of parenthood are unparalleled. It's a journey of unconditional love, selflessness, and constant learning.
+      </p>
+      <p class="stext-117 cl6 p-b-26">
+        While parenting may come with its challenges, there's no shortage of guidance and support available to navigate the journey. From parenting books and online resources to support groups and advice from fellow parents, there are endless opportunities to learn and grow as a parent. Embracing the joys of being a parent also means embracing the journey, cherishing every moment, and celebrating the unique bond you share with your child.
+      </p>
+    `,
+    comments: [
+      { name: "Sarah (a Mom)", avatar: "images/female.jpg", text: "This is so helpful! I always struggle with finding the right toys." },
+      { name: "Admin", avatar: "images/admin.png", text: "You're welcome, Sarah! The goal is always fun and learning combined." }
+    ]
+  },
+  {
+    id: 7,
+    title: "Essential Tips for Buying and Caring for Kids' Toys",
+    image: "blog-07.jpg", // Gán một ảnh ví dụ
+    author: "Admin",
+    date: "July 02, 2024",
+    category: "Tips",
+    tags: ["Safety", "Shopping"],
+    content: `
+      <p class="stext-117 cl6 p-b-26">
+        When it comes to buying toys for children, safety should always be the top priority. Look for toys that are age-appropriate and free from small parts or sharp edges that could pose a choking hazard. Check for any safety labels or certifications to ensure the toy meets recognized safety standards. Additionally, consider the child's interests and developmental stage when choosing toys, opting for options that encourage creativity, learning, and physical activity.
+      </p>
+      <p class="stext-117 cl6 p-b-26">
+        Caring for kids' toys is essential to prolong their lifespan and maintain their safety. Regularly clean toys to remove dirt, germs, and bacteria, especially for toys that are frequently used. Inspect toys for any signs of damage or wear, such as loose parts or broken pieces, and repair or replace them as needed. Establishing a routine for cleaning up and storing toys properly can help teach children responsibility and keep play areas organized and safe.
+      </p>
+    `,
+    comments: [
+      { name: "Sarah (a Mom)", avatar: "images/female.jpg", text: "This is so helpful! I always struggle with finding the right toys." },
+      { name: "Admin", avatar: "images/admin.png", text: "You're welcome, Sarah! The goal is always fun and learning combined." }
+    ]
+  },
+  {
+    id: 8,
+    title: "When a Little Toy Brings Everyone Together",
+    image: "blog-08.jpg", // Gán một ảnh ví dụ
+    author: "Admin",
+    date: "June 30, 2024",
+    category: "Community",
+    tags: ["Connection", "Play"],
+    content: `
+      <p class="stext-117 cl6 p-b-26">
+        Sometimes, the smallest things can have the biggest impact, and toys are no exception. A simple toy has the magical ability to bring people together, transcending age, background, and culture. Whether it's a classic board game during a family gathering, a shared puzzle solving session, or a friendly competition with remote-controlled cars, toys have a unique power to unite people in laughter, fun, and camaraderie.
+      </p>
+      <p class="stext-117 cl6 p-b-26">
+        Beyond mere entertainment, these shared play experiences foster bonds, promote communication, and create cherished memories that last a lifetime. Whether it's parents playing with their children, friends enjoying a game night, or communities coming together for toy drives and events, the joy and connection that toys bring serve as a reminder of the simple pleasures in life and the importance of shared experiences.
+      </p>
+    `,
+    comments: [
+      { name: "Sarah (a Mom)", avatar: "images/female.jpg", text: "This is so helpful! I always struggle with finding the right toys." },
+      { name: "Admin", avatar: "images/admin.png", text: "You're welcome, Sarah! The goal is always fun and learning combined." }
+    ]
+  },
+  {
+    id: 9,
+    title: "Fun Ways to Help Your Child Learn and Grow",
+    image: "blog-09.jpg", // Gán một ảnh ví dụ
+    author: "Admin",
+    date: "June 28, 2024",
+    category: "Activities",
+    tags: ["Learning", "Fun"],
+    content: `
+      <p class="stext-117 cl6 p-b-26">
+        Turn cooking into a learning experience by inviting your child to join you in the kitchen. Let them help with simple tasks like measuring ingredients, mixing, and decorating. This not only teaches them practical skills but also introduces concepts like math (measuring ingredients), science (mixing ingredients to create chemical reactions), and creativity (decorating dishes). Plus, they'll feel proud of their culinary creations and be more inclined to try new foods.
+      </p>
+      <p class="stext-117 cl6 p-b-26">
+        Encourage your child's love for music and movement by organizing dance parties or music jam sessions at home. Provide a variety of instruments like drums, shakers, or even homemade options like pots and pans. Dancing and making music together not only fosters creativity but also improves coordination and rhythm. You can also introduce educational songs that teach concepts like counting, the alphabet, or colors, making learning feel like playtime. These activities promote physical activity while stimulating cognitive development in a fun and engaging way.
+      </p>
+    `,
+    comments: [
+      { name: "Sarah (a Mom)", avatar: "images/female.jpg", text: "This is so helpful! I always struggle with finding the right toys." },
+      { name: "Admin", avatar: "images/admin.png", text: "You're welcome, Sarah! The goal is always fun and learning combined." }
+    ]
+  },
+  {
+    id: 10,
+    title: "Exploring the Evolution of Toys Through the Years",
+    image: "blog-10.jpg", // Gán một ảnh ví dụ
+    author: "Admin",
+    date: "June 25, 2024",
+    category: "History",
+    tags: ["Evolution", "Technology"],
+    content: `
+      <p class="stext-117 cl6 p-b-26">
+        Toys have experienced a remarkable evolution throughout history, mirroring societal shifts and technological advancements. Initially, toys were rudimentary, often handmade from natural materials like wood or clay. These early playthings, such as dolls, spinning tops, and carved animals, encouraged creativity and imaginative play.
+      </p>
+      <p class="stext-117 cl6 p-b-26">
+        As industrialization progressed, toy manufacturing became more standardized, leading to the mass production of toys made from metal, plastic, and other materials. This era saw the rise of iconic toys like model trains, teddy bears, and building blocks, shaping the childhoods of generations. Today, the toy industry continues to evolve rapidly, with toys incorporating state-of-the-art technology like robotics, virtual reality, and interactive features. Despite these modern innovations, there's a growing appreciation for vintage and retro toys, underscoring the enduring appeal of traditional play experiences.
+      </p>
+    `,
+    comments: [
+      { name: "Sarah (a Mom)", avatar: "images/female.jpg", text: "This is so helpful! I always struggle with finding the right toys." },
+      { name: "Admin", avatar: "images/admin.png", text: "You're welcome, Sarah! The goal is always fun and learning combined." }
+    ]
+  },
+  {
+    id: 11,
+    title: "What's Hot and What's Not in the Toy World",
+    image: "blog-11.jpg", // Gán một ảnh ví dụ
+    author: "Admin",
+    date: "June 22, 2024",
+    category: "Trends",
+    tags: ["STEM", "Digital"],
+    content: `
+      <p class="stext-117 cl6 p-b-26">
+        In the ever-evolving toy world, trends come and go, shaping the preferences of children and parents alike. Today, STEM (Science, Technology, Engineering, and Mathematics) toys are gaining popularity as parents seek to introduce their children to educational yet entertaining play experiences. These toys encourage critical thinking, problem-solving, and innovation, preparing kids for future success in a technology-driven world.
+      </p>
+      <p class="stext-117 cl6 p-b-26">
+        Conversely, traditional toys like dolls and action figures remain timeless classics, offering endless imaginative possibilities. However, with the rise of digital entertainment, such as video games and interactive apps, some traditional toys face stiff competition. Yet, even in this digital age, there's a growing appreciation for toys that promote hands-on, unplugged play, striking a balance between virtual and real-world experiences.
+      </p>
+    `,
+    comments: [
+      { name: "Sarah (a Mom)", avatar: "images/female.jpg", text: "This is so helpful! I always struggle with finding the right toys." },
+      { name: "Admin", avatar: "images/admin.png", text: "You're welcome, Sarah! The goal is always fun and learning combined." }
+    ]
+  },
+  {
+    id: 12,
+    title: "The Incredible Impact of Toys On Young Minds",
+    image: "blog-12.jpg", // Gán một ảnh ví dụ
+    author: "Admin",
+    date: "June 20, 2024",
+    category: "Development",
+    tags: ["Cognitive", "Growth"],
+    content: `
+      <p class="stext-117 cl6 p-b-26">
+        Toys wield an incredible influence on the minds of children, shaping their development in profound ways. These playthings are not merely objects for amusement but serve as essential tools for learning and growth. Through play, children engage in imaginative exploration, honing their creativity and problem-solving skills. From building blocks to pretend playsets, toys provide fertile ground for children to develop crucial cognitive and social abilities.
+      </p>
+      <p class="stext-117 cl6 p-b-26">
+        Moreover, toys serve as educational aids tailored to specific developmental needs. Whether it's a puzzle to challenge their problem-solving abilities or a musical instrument to foster a love for music, each toy offers unique opportunities for learning. By interacting with these toys, children not only refine their motor skills but also cultivate a thirst for knowledge and a passion for exploration. Thus, the impact of toys on young minds is undeniable, shaping the foundation of their future learning and development.
+      </p>
+    `,
+    comments: [
+      { name: "Sarah (a Mom)", avatar: "images/female.jpg", text: "This is so helpful! I always struggle with finding the right toys." },
+      { name: "Admin", avatar: "images/admin.png", text: "You're welcome, Sarah! The goal is always fun and learning combined." }
+    ]
+  }
+];

@@ -1,52 +1,47 @@
-
 <!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
 <html lang="en" dir="ltr">
-
 <head>
-    <title>Omacha - Playful World</title>
     <meta charset="UTF-8">
-    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+    <title>Omacha - Login</title>
     <link rel="stylesheet" href="style.css">
-    <!-- link icon -->
     <link rel="icon" type="image/png" href="images/icon.png" />
-    <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body1>
     <div class="container">
-        <form action="login.php" method="post" autocomplete="off" class="sign-in-form">
+        <!-- Thay đổi form: Xóa action, method và thêm id -->
+        <form id="login-form" class="sign-in-form">
             <input type="checkbox" id="flip">
             <div class="cover">
                 <div class="front">
                     <img src="images/icon.png" alt="">
                 </div>
-                <div class="back">
-                    <img class="backImg" src="images/backImg.jpg" alt="">
-                    <div class="text">
-                        <span class="text-1">Complete miles of journey <br> with one step</span>
-                        <span class="text-2">Let's get started</span>
-                    </div>
-                </div>
+                <!-- ... (Phần cover giữ nguyên) ... -->
             </div>
             <div class="forms">
                 <div class="form-content">
                     <div class="login-form">
                         <div class="title">Login</div>
+                        
+                        <!-- Thêm vùng hiển thị lỗi -->
+                        <div id="error-message" style="color: red; text-align: center; margin-bottom: 10px; display: none;"></div>
+
                         <div class="input-boxes">
                             <div class="input-box">
                                 <i class="fas fa-user"></i>
-                                <input type="text" name="user" placeholder="Enter your Name" required>
+                                <!-- Thêm id cho các trường input -->
+                                <input type="text" id="username" placeholder="Enter your Name (user)" required>
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" name="pass" placeholder="Enter your password" required>
+                                <input type="password" id="password" placeholder="Enter your password (user123)" required>
                             </div>
                             <div class="button input-box">
-                                <input type="submit" name="signin" value="Sign In" class="sign-btn">
+                                <!-- Thay đổi type từ submit thành button để không reload trang -->
+                                <input type="button" id="login-button" value="Sign In" class="sign-btn">
                             </div>
-                            <div class="text sign-up-text">Don't have an account? <a href="register.php">Sign up
+                            <div class="text sign-up-text">Don't have an account? <a href="register.html">Sign up
                                     now</a></div>
                         </div>
                     </div>
@@ -54,7 +49,10 @@
             </div>
         </form>
     </div>
+
+    <!-- Nhúng các file script cần thiết -->
+    <script src="js/data.js"></script>
+    <script src="js/login.js"></script>
+
 </body1>
-
-
 </html>
