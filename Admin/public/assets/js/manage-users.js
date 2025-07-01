@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <!-- Avatar (có thể thêm ảnh sau) -->
                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                                 <img class="object-cover w-full h-full rounded-full"
-                                    src="../../images/${user.role === 'admin' ? 'admin.png' : 'male.jpg'}"
+                                    src="../../images/${user.role === 'admin' ? 'admin.jpg' : 'male.jpg'}"
                                     alt="${user.userName}" loading="lazy" />
                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                             </div>

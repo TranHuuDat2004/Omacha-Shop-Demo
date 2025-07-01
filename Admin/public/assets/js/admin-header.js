@@ -395,7 +395,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <button class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
                 @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account" aria-haspopup="true">
                 <img class="object-cover w-8 h-8 rounded-full"
-                  src="../../images/ThuyKhanh1.jpg"
+                  src="../../images/admin.jpg"
                   alt="" aria-hidden="true" />
               </button>
               <template x-if="isProfileMenuOpen">

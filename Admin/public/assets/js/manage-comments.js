@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="flex items-center text-sm">
                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                                 <img class="object-cover w-full h-full rounded-full"
-                                    src="../../images/${comment.userType === 'admin' ? 'admin.png' : (comment.userType === 'male' ? 'male.jpg' : 'female.jpg')}"
+                                    src="../../images/${comment.userType === 'admin' ? 'admin.jpg' : (comment.userType === 'male' ? 'male.jpg' : 'female.jpg')}"
                                     alt="${comment.commentName}" loading="lazy" />
                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                             </div>
