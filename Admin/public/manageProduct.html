@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Products - Omacha Admin</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
+  <link rel="icon" type="image/png" href="../images/icon.png" />
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+
+<body>
+  
+  <!-- NỘI DUNG CHÍNH CỦA TRANG MANAGE PRODUCTS -->
+  <main>
+    <div class="container px-6 mx-auto grid">
+      <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+        Manage Products
+      </h2>
+
+      <!-- Nút thêm sản phẩm mới -->
+      <div class="mb-4">
+        <a href="addProduct.html" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+          Add New Product
+          <span class="ml-2" aria-hidden="true">+</span>
+        </a>
+      </div>
+
+      <!-- Bảng danh sách sản phẩm -->
+      <div class="w-full overflow-hidden rounded-lg shadow-xs">
+        <div class="w-full overflow-x-auto">
+          <table class="w-full whitespace-no-wrap">
+            <thead>
+              <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                <th class="px-4 py-3">Product</th>
+                <th class="px-4 py-3">Price</th>
+                <th class="px-4 py-3">Type</th>
+                <th class="px-4 py-3">Provider</th>
+                <th class="px-4 py-3 text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="product-table-body" class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+              <!-- Dữ liệu sản phẩm sẽ được JS điền vào đây -->
+              <tr>
+                <td colspan="5" class="px-4 py-3 text-center">Loading product data...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
+          <span id="pagination-summary" class="flex items-center col-span-3">
+            Showing 0-0 of 0
+          </span>
+        </div>
+      </div>
+    </div>
+  </main>
+    
+  <!-- Các file script -->
+  <script src="assets/js/init-alpine.js"></script>
+  <script src="../../js/data.js"></script> 
+  <script src="assets/js/admin-header.js"></script> 
+  <script src="assets/js/manage-products.js"></script> <!-- Nạp logic cho trang này -->
+</body>
+</html>

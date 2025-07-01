@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (foundUser.role === 'admin') {
                 // Chuyển hướng đến trang dashboard của admin
                 // alert('Admin login successful! Redirecting to dashboard...');
-                window.location.href = 'admin/dashboard.html'; 
+                window.location.href = 'Admin/public/index.html'; 
             } else {
                 // Chuyển hướng đến trang chủ cho user thường
                 // alert('Login successful! Welcome back, ' + foundUser.userName + '!');

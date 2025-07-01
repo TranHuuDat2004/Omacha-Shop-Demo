@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add New Product - Omacha Admin</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
+  <link rel="icon" type="image/png" href="../images/icon.png" />
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+
+<body>
+  
+  <!-- NỘI DUNG CHÍNH CỦA TRANG ADD PRODUCT -->
+  <main>
+    <div class="container px-6 mx-auto grid">
+      <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+        Add New Product
+      </h2>
+
+      <!-- Form để thêm sản phẩm -->
+      <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+        <form id="add-product-form">
+            <!-- Dòng 1: Tên sản phẩm -->
+            <label class="block text-sm">
+              <span class="text-gray-700 dark:text-gray-400">Product Name *</span>
+              <input
+                id="product-name"
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                placeholder="e.g., LEGO 70365 Axl" required/>
+            </label>
+
+            <!-- Dòng 2: Giá và Nhà cung cấp -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <label class="block text-sm">
+                    <span class="text-gray-700 dark:text-gray-400">Price *</span>
+                    <input
+                        id="product-price"
+                        type="number"
+                        step="0.01"
+                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                        placeholder="e.g., 12.99" required/>
+                </label>
+                <label class="block text-sm">
+                    <span class="text-gray-700 dark:text-gray-400">Provider / Brand *</span>
+                    <input
+                        id="product-provider"
+                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                        placeholder="e.g., LEGO" required/>
+                </label>
+            </div>
+
+            <!-- Dòng 3: Loại và Độ tuổi -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                 <label class="block text-sm">
+                    <span class="text-gray-700 dark:text-gray-400">Type *</span>
+                    <select id="product-type"
+                        class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" required>
+                        <option value="Plastic">Plastic</option>
+                        <option value="Cotton">Cotton</option>
+                        <option value="Wood">Wood</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Rubberized Plastic">Rubberized Plastic</option>
+                    </select>
+                </label>
+                <label class="block text-sm">
+                    <span class="text-gray-700 dark:text-gray-400">Recommended Age *</span>
+                    <input
+                        id="product-age"
+                        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                        placeholder="e.g., 5+ years" required/>
+                </label>
+            </div>
+
+            <!-- Dòng 4: Hình ảnh -->
+            <label class="block mt-4 text-sm">
+              <span class="text-gray-700 dark:text-gray-400">
+                Image Filenames (comma-separated)
+              </span>
+              <input
+                id="product-images"
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                placeholder="e.g., LEGO_70365_1.png, LEGO_70365_2.png" />
+            </label>
+
+            <!-- Dòng 5: Mô tả -->
+            <label class="block mt-4 text-sm">
+              <span class="text-gray-700 dark:text-gray-400">Description</span>
+              <textarea
+                id="product-description"
+                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                rows="5"
+                placeholder="Enter a detailed description of the product."
+              ></textarea>
+            </label>
+
+            <!-- Nút Submit -->
+            <div class="mt-6">
+                <button type="submit" class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                    Create Product
+                </button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </main>
+    
+  <!-- Các file script -->
+  <script src="assets/js/init-alpine.js"></script>
+  <script src="../../js/data.js"></script> 
+  <script src="assets/js/admin-header.js"></script> 
+  <script src="assets/js/add-product.js"></script> <!-- Nạp logic cho trang này -->
+</body>
+</html>
