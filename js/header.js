@@ -63,6 +63,10 @@ function renderHeaderAndSidebar() {
                             <p style="color: #F4538A"><i class="fa fa-envelope mr-2"></i><a href="mailto:omachacontact@gmail.com" style="color: #000; text-decoration: none;">omachacontact@gmail.com</a></p>
                             <p class="text-body px-3">|</p>
                             <p style="color: #F4538A"><i class="fa fa-phone-alt mr-2"></i><a href="tel:+19223600" style="color: #000; text-decoration: none;">+1922 4800</a></p>
+                            <p class="text-body px-3">|</p>
+                            <a href="#" id="show-demo-notice-btn" title="About this demo" style="color: #49243E; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                               <i class="fa fa-info-circle"></i> <span>Demo Info</span>
+                            </a>
                         </div>
                     </div>
                     <div class="col-lg-6 text-center text-lg-right">
