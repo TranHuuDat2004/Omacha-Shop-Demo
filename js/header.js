@@ -1,64 +1,60 @@
+// js/header.js - Quản lý toàn bộ Header, Hamburger Menu và Sidebar Giỏ hàng
+
+/**
+ * Hàm toàn cục để cập nhật các chỉ số (số lượng) trên icon của header.
+ * Có thể được gọi từ các file khác như cart.js.
+ */
 function updateHeaderIcons() {
-    // Lấy dữ liệu mới nhất từ localStorage
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
     const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
     const wishlistItemCount = wishlist.length;
 
-    // Tìm các icon trên header
-    const cartIcon = document.querySelector('.js-show-cart');
-    const wishlistIcon = document.querySelector('.icon-header-noti[data-notify]'); // Cần một selector tốt hơn nếu có nhiều icon
+    // Cập nhật cho cả desktop và mobile
+    document.querySelectorAll('.js-show-cart').forEach(icon => {
+        icon.setAttribute('data-notify', cartItemCount);
+    });
 
-    // Cập nhật thuộc tính data-notify
-    if (cartIcon) {
-        cartIcon.setAttribute('data-notify', cartItemCount);
-    }
-    if (wishlistIcon) {
-        // Giả sử icon wishlist là cái thứ hai
-        document.querySelectorAll('.icon-header-noti')[1].setAttribute('data-notify', wishlistItemCount);
-    }
+    // Tìm icon wishlist một cách an toàn hơn
+    document.querySelectorAll('a.icon-header-noti').forEach(iconLink => {
+        if (iconLink.querySelector('.zmdi-favorite-outline')) {
+            iconLink.setAttribute('data-notify', wishlistItemCount);
+        }
+    });
+
     console.log('Header icons updated!');
 }
 
-
-document.addEventListener('DOMContentLoaded', function() {
-
-    // --- STEP 1: GET STATE DATA ---
+/**
+ * Hàm chính để xây dựng và chèn header và sidebar cart vào trang.
+ */
+function renderHeaderAndSidebar() {
+    // Lấy dữ liệu cần thiết
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || null;
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
-    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-    const wishlistItemCount = wishlist.length;
+    const cartItemCount = (JSON.parse(localStorage.getItem('cart')) || []).reduce((total, item) => total + item.quantity, 0);
+    const wishlistItemCount = (JSON.parse(localStorage.getItem('wishlist')) || []).length;
 
-    // --- STEP 2: BUILD DYNAMIC HTML PARTS (VERSION ĐÃ CẬP NHẬT) ---
+    // Tạo HTML cho phần trạng thái đăng nhập
     let loginStatusHTML = '';
     if (loggedInUser) {
-        // Giao diện KHI ĐÃ ĐĂNG NHẬP
         loginStatusHTML = `
             <div class="header-login-status" style="display: flex; align-items: center;">
                 <span style="color: #49243E;">Welcome, <b>${loggedInUser.userName}</b></span>
-                
-                <!-- Dải phân cách với khoảng trống hai bên -->
                 <span style="margin: 0 12px; color: #dddddd;">|</span> 
-                
                 <a href="#" id="logout-button" style="color: #F4538A; font-weight: bold; text-decoration: none;">Logout</a>
             </div>`;
     } else {
-        // Giao diện KHI CHƯA ĐĂNG NHẬP
         loginStatusHTML = `
             <div class="header-login-status" style="display: flex; align-items: center; font-weight: bold; color: #49243E;">
                 <a href="login.html" style="color: inherit; text-decoration: none;">Login</a>
-                
-                <!-- Dải phân cách với khoảng trống hai bên -->
                 <span style="margin: 0 10px; color: #dddddd;">|</span> 
-                
                 <a href="register.html" style="color: inherit; text-decoration: none;">Register</a>
             </div>`;
     }
 
-    // --- STEP 3: CONSTRUCT THE ENTIRE HEADER HTML (Không thay đổi) ---
-    const headerHTML = `
-    <header>
+    // Tạo chuỗi HTML hoàn chỉnh
+    const headerAndCartHTML = `
+        <header>
         <div class="container-menu-desktop">
             <div class="top-bar">
                 <div class="content-topbar flex-sb-m h-full container">
@@ -104,42 +100,69 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
         <!-- ... (Header Mobile) ... -->
-    </header>;`
+            <div class="wrap-header-mobile"><div class="logo-mobile"><a href="index.html"><img src="images/icon.png" alt="OMACHA"></a></div><div class="wrap-icon-header flex-w flex-r-m m-r-15"><div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search"><i class="zmdi zmdi-search"></i></div><div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="${cartItemCount}"><i class="zmdi zmdi-shopping-cart"></i></div><a href="wishlist.html" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="${wishlistItemCount}"><i class="zmdi zmdi-favorite-outline"></i></a></div><div class="btn-show-menu-mobile hamburger hamburger--squeeze"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></div>
+            <!-- Menu Mobile -->
+            <div class="menu-mobile"><ul class="main-menu-m"><li><a href="index.html">Home</a></li><li><a href="product.html">Product</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li><li><a href="about.html">About Us</a></li></ul><div class="login-status-mobile" style="padding: 15px; border-top: 1px solid #e6e6e6; margin-top: 15px; text-align: center;"></div></div>
+        </header>
+       
+    `;
 
-    // --- STEP 4 & 5 & 6 (Không thay đổi) ---
+    // Chèn HTML vào trang
     const placeholder = document.getElementById('header-placeholder');
     if (placeholder) {
-        placeholder.outerHTML = headerHTML;
+        placeholder.insertAdjacentHTML('beforebegin', headerAndCartHTML);
+        placeholder.remove();
+    }
+}
+
+/**
+ * Hàm này chuyên để gắn các sự kiện cho header SAU KHI nó đã được render.
+ */
+function attachHeaderEvents() {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || null;
+
+    // Tạo HTML cho phần login trên mobile
+    const mobileLoginContainer = document.querySelector('.login-status-mobile');
+    if (mobileLoginContainer) {
+        if (loggedInUser) {
+            mobileLoginContainer.innerHTML = `<div style="margin-bottom: 10px;">Welcome, <b>${loggedInUser.userName}</b></div><a href="#" id="logout-button-mobile" class="flex-c-m stext-101 cl0 size-108 bg3 bor1 hov-btn3 p-lr-15 trans-04">Logout</a>`;
+        } else {
+            mobileLoginContainer.innerHTML = `<a href="login.html" class="flex-c-m stext-101 cl0 size-108 bg3 bor1 hov-btn3 p-lr-15 trans-04">Login / Register</a>`;
+        }
     }
 
-    const logoutButton = document.getElementById('logout-button');
-    if (logoutButton) {
-        logoutButton.addEventListener('click', function(e) {
-            e.preventDefault();
+    // Hàm xử lý logout chung
+    function handleLogout(e) {
+        e.preventDefault();
+        if (confirm("Are you sure you want to log out?")) {
             localStorage.removeItem('loggedInUser');
             alert('You have successfully logged out!');
-            window.location.reload(); 
-        });
+            window.location.reload();
+        }
     }
 
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const menuLinks = document.querySelectorAll('.main-menu a');
-    menuLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-            link.parentElement.classList.add('active-menu');
-        }
+    // Gắn sự kiện cho các nút logout
+    // Dùng jQuery và event delegation để đảm bảo hoạt động
+    $('body').on('click', '#logout-button, #logout-button-mobile', handleLogout);
+
+    // Gắn sự kiện cho nút Hamburger Menu
+    $('body').on('click', '.btn-show-menu-mobile', function () {
+        $(this).toggleClass('is-active');
+        $('.menu-mobile').slideToggle(300);
     });
 
-    const topBar = document.querySelector('.top-bar');
-    const menuWrap = document.querySelector('.wrap-menu-desktop');
-    if (topBar && menuWrap) {
-        const headerTopHeight = topBar.offsetHeight;
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > headerTopHeight) {
-                document.body.classList.add('fix-menu-desktop');
-            } else {
-                document.body.classList.remove('fix-menu-desktop');
-            }
-        });
-    }
+    // Active menu
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    $('.main-menu a').each(function () {
+        if ($(this).attr('href') === currentPage) {
+            $(this).parent().addClass('active-menu');
+        }
+    });
+}
+
+// --- THỰC THI ---
+document.addEventListener('DOMContentLoaded', function () {
+    renderHeaderAndSidebar(); // 1. Vẽ khung HTML
+    attachHeaderEvents();     // 2. Gắn sự kiện cho các nút
+    updateHeaderIcons();      // 3. Cập nhật số lượng ban đầu
 });

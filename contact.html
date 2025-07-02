@@ -16,9 +16,6 @@
 	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
-	<link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
 	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
 	
 	<!-- Các file CSS tự viết -->
@@ -31,48 +28,6 @@
 	<!-- Header Placeholder -->
 	<div id="header-placeholder"></div>
 
-	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
-		<div class="s-full js-hide-cart"></div>
-
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
-			<div class="header-cart-title flex-w flex-sb-m p-b-8">
-				<span class="mtext-103 cl2">
-					Your Cart
-				</span>
-
-				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-					<i class="zmdi zmdi-close"></i>
-				</div>
-			</div>
-
-			<div class="header-cart-content flex-w js-pscroll">
-				<!-- STEP 1: Xóa các li tĩnh, để lại ul trống -->
-				<ul class="header-cart-wrapitem w-full">
-					<!-- JavaScript sẽ tự động chèn các sản phẩm vào đây -->
-				</ul>
-
-				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">
-						Total: $0.00 <!-- JS sẽ cập nhật giá trị này -->
-					</div>
-
-					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.html"
-							class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart
-						</a>
-
-						<a href="shoping-cart.html"
-							class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/background-image.png');">
 		<h2 style="color: #000;" class="ltext-105 cl0 txt-center">
@@ -90,12 +45,12 @@
 							Send Us A Message
 						</h4>
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-lr-28" type="text" name="email" placeholder="Your Email Address">
+							<input class="stext-111 cl2 plh3 size-116 p-lr-28" type="text" name="email" placeholder="Your Email Address" required>
 						</div>
 						<div class="bor8 m-b-30">
-							<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?"></textarea>
+							<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg" placeholder="How Can We Help?" required></textarea>
 						</div>
-						<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+						<button type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
 							Submit
 						</button>
 					</form>
@@ -139,14 +94,8 @@
 		</div>
 	</section>	
 	
-	<!-- Map -->
-	<div class="map">
-		<div class="size-303" id="google_map" data-map-x="10.732645" data-map-y="106.697188" data-pin="images/icons/pin.png" data-scrollwhell="0" data-draggable="1" data-zoom="15"></div>
-	</div>
-
 	<!-- Footer Placeholder -->
 	<div id="footer-placeholder"></div>
-
 
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">
@@ -162,22 +111,20 @@
 	<!-- 1. Nạp jQuery trước tiên -->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 
-	<!-- 2. Nạp các thư viện của template (phụ thuộc vào jQuery) -->
+	<!-- 2. Nạp các thư viện của template -->
 	<script src="vendor/animsition/js/animsition.min.js"></script>
 	<script src="vendor/bootstrap/js/popper.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="vendor/select2/select2.min.js"></script>
 	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script> -->
-	<script src="js/map-custom.js"></script>
-
-	<!-- 3. Nạp các script tùy chỉnh của bạn (dữ liệu và render) -->
+	
+	<!-- 3. Nạp các script tùy chỉnh của bạn -->
 	<script src="js/data.js"></script>
 	<script src="js/header.js"></script>
 	<script src="js/footer.js"></script>
 	<script src="js/cart.js"></script>
 
-	<!-- 4. Nạp script chính của template (gắn các sự kiện) cuối cùng -->
+	<!-- 4. Nạp script chính của template (gắn các sự kiện UI) cuối cùng -->
 	<script src="js/main.js"></script>
 
 </body>
