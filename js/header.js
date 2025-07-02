@@ -106,7 +106,25 @@ function renderHeaderAndSidebar() {
         <!-- ... (Header Mobile) ... -->
             <div class="wrap-header-mobile"><div class="logo-mobile"><a href="index.html"><img src="images/icon.png" alt="OMACHA"></a></div><div class="wrap-icon-header flex-w flex-r-m m-r-15"><div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search"><i class="zmdi zmdi-search"></i></div><div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="${cartItemCount}"><i class="zmdi zmdi-shopping-cart"></i></div><a href="wishlist.html" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="${wishlistItemCount}"><i class="zmdi zmdi-favorite-outline"></i></a></div><div class="btn-show-menu-mobile hamburger hamburger--squeeze"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></div>
             <!-- Menu Mobile -->
-            <div class="menu-mobile"><ul class="main-menu-m"><li><a href="index.html">Home</a></li><li><a href="product.html">Product</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li><li><a href="about.html">About Us</a></li></ul><div class="login-status-mobile" style="padding: 15px; border-top: 1px solid #e6e6e6; margin-top: 15px; text-align: center;"></div></div>
+           <!-- Menu Mobile -->
+		<div class="menu-mobile">
+			<ul class="main-menu-m">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About Us</a></li>
+                
+                <!-- ============================================= -->
+                <!-- DÒNG MỚI ĐƯỢC THÊM VÀO ĐÂY -->
+                <!-- ============================================= -->
+                <li style="border-top: 1px solid #e6e6e6; margin-top: 10px; padding-top: 10px;">
+                    <a href="#" id="show-demo-notice-btn">
+                        <i class="fa fa-info-circle" style="margin-right: 10px;"></i>Demo Info
+                    </a>
+                </li>
+			</ul>
+            <div class="login-status-mobile" style="padding: 15px; border-top: 1px solid #e6e6e6; margin-top: 15px; text-align: center;"></div></div>
         </header>
        
     `;
